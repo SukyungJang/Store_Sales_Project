@@ -1,7 +1,7 @@
 # Kaggle Store Sales - 시계열 예측 (~ 2023.05.17)
 <br/>
 
-## [1. Streamlit 웹 서비스](https://jangsukyung-store-sales-project-main-app-ghkqjj.streamlit.app/ "Streamlit Link")<br/>
+## [1. Streamlit 웹 서비스](https://sukyungjang-store-sales-project-main-app-4r8mb6.streamlit.app/ "Streamlit Link")<br/>
 
 ## [2. 발표 영상](https://jangsukyung-store-sales-project-main-app-o9qgi7.streamlit.app/ "Presentation Link")<br/>
 
