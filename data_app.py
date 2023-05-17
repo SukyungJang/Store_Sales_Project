@@ -9,28 +9,29 @@ import utils
 
 
 def summary(dataframe):
-    # st.set_page_config(page_title="Store Sales", page_icon=":💰:",
-    #                         layout = "wide", initial_sidebar_state="expanded")
     """
     요약 정보를 출력하기 위한 함수
     """
-    # 화면 분할을 위한 컬럼 설정 2:1 비율
+    # 전체 너비를 8로 나누어 2개의 컬럼을 만듦
     col1, col2 = st.columns([4, 4])
 
+    # col1 컬럼
     with col1:
-        st.title("📣 Data")
-        st.dataframe(dataframe, height=810, width=1200)
+        st.title("📣 Data") # 제목 출력
+        st.dataframe(dataframe, height=810, width=1200) # 데이터 프레임 출력, height와 width로 데이터프레임 크기 조절 (단위 : 픽셀)
 
+    # col2 컬럼
     with col2:
         st.title("📣 Data Type")
-        st.dataframe(dataframe.dtypes, height=350, width=650)
+        st.dataframe(dataframe.dtypes, height=350, width=650) # 각 열의 데이터 타입 출력, 높이 : 350px, 너비 : 650px
 
         st.title("📣 Describe")
-        st.dataframe(dataframe.describe(), height=350, width=650)
+        st.dataframe(dataframe.describe(), height=350, width=650) # 기술통계량의 요약 정보 출력, 높이 : 350px, 너비 : 650px
 
 def data_app():
-
+    # 데이터 로드
     train, test, transactions, stores, oil, holidays = utils.load_data()
+
     # 데이터 딕셔너리 생성
     datalist_dict = {
         "✓ Train": train,
@@ -42,7 +43,7 @@ def data_app():
     }
 
     # selectbox 생성
-    datalist = st.selectbox("✅ 데이터 종류", list(datalist_dict.keys()), index=0)
+    datalist = st.selectbox("✅ 데이터 종류", list(datalist_dict.keys()), index=0) # 데이터 딕셔너리의 키 목록을 리스트로 변환
     st.markdown("---")
     st.subheader(f"📝{datalist} Data Description")
 
