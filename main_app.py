@@ -16,13 +16,13 @@ def main():
     # Streamlit 앱 실행
     with st.sidebar:
         selected = option_menu("Main Menu", ["INTRO", "DATA", "Exploratory Data Analysis", "STAT", "ML"],
-                               icons=["house", "card-checklist", "bar-chart", "clipboard-data", "gear"],
-                               menu_icon="cast",
-                               default_index=0,
-                               orientation="vertical")
+                               icons = ["house", "card-checklist", "bar-chart", "clipboard-data", "gear"],
+                               menu_icon = "cast",
+                               default_index = 0,
+                               orientation = "vertical")
 
 
-    st.markdown("<h1 style='text-align: center;'> &#x1f4b0 Store Sales &#x1f4b0 </h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'> &#x1f4b0 Store Sales &#x1f4b0 </h1>", unsafe_allow_html=True) # html 태그를 사용할 수 있게 함
 
 
     if selected == "INTRO":

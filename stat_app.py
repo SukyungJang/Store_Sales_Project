@@ -38,7 +38,7 @@ def eda_features_date(train, test, transactions, stores, oil, holidays):
 
     oil = oil.set_index("date").dcoilwtico.resample("D").sum().reset_index()
     oil["dcoilwtico"] = np.where(oil["dcoilwtico"] == 0, np.nan, oil["dcoilwtico"])
-    oil["dcoilwtico_interpolated"] = oil.dcoilwtico.interpolate()
+    oil["dcoilwtico_interpolated"] = oil.dcoilwtico.interpolate() # 보간 처리
 
     train = train[~((train.store_nbr == 52) & (train.date < "2017-04-20"))]
     train = train[~((train.store_nbr == 22) & (train.date < "2015-10-09"))]
@@ -67,7 +67,6 @@ def create_date_features(df):
     df["day_of_month"] = df.date.dt.day.astype("int8")
     df["day_of_year"] = df.date.dt.dayofyear.astype("int16")
     df["week_of_month"] = (df.date.apply(lambda d: (d.day-1)//7 + 1)).astype("int8")
-    # df["week_of_year"] = df.date.dt.weekofyear.astype("int8")
     df["day_of_week"] = (df.date.dt.dayofweek + 1).astype("int8")
     df["year"] = df.date.dt.year.astype("int32")
     df["is_wknd"] = (df.date.dt.weekday//4).astype("int8")

@@ -504,7 +504,6 @@ def Trend_Moving_average(train):
     추세 이동평균 그래프
     '''
     fig, ax = plt.subplots(nrows=1,ncols=2, figsize=(30,8))
-    # plot_moving_average(transactions, 'date','W','transactions',7,4,ax[0],'Transactions Moving Average')
     plot_moving_average(train,'date','W','sales',7,4,ax[0],'Sales Weekly-7 Moving Average')
     plot_moving_average(train, 'date', 'W', 'sales', 30, 4, ax[1], 'Sales Weekly-30 Moving Average')
 
@@ -537,9 +536,7 @@ def eda_app():
                                       ["Daily Total Sales of The Stores", "Daily Total Sales of The Family"
                                      , "Lags Grouped by Week / Month", "Moving Average", "Sales Grouped by Week / Month"])
 
-        #        if selected_chart == "1":
-        #            # 각 매장별 Sales 에 대한 상관 관계 그래프
-        #            fig_Train_sales_Correlation(train)
+
         if selected_chart == "Daily Total Sales of The Stores":
             # 각 매장 별 Total Sales 패턴 파악
             fig_Train_store_TotalSales_patten(train)

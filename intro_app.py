@@ -42,7 +42,7 @@ def intro_app():
                     "- 이 대회의 평가 지표는 ***:violet[Root Mean Squared Logarithmic Error]*** (평균 제곱근 오차)입니다. \n")
         st.latex(r'''
             {RMSLE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n \left(\log (1 + \hat{y}_i) - \log (1 + y_i)\right)^2}
-            ''')
+            ''') # LaTeX 수식을 활용하는 데 사용
         st.markdown(
                     "- $n$ n은 **:green[총 인스턴스의 수]** 입니다. \n"
                     "- $\hat{y}_i$ i는 인스턴스 i에 대한 **:green[예측된 타겟 값]** 입니다. \n"
@@ -65,7 +65,6 @@ def intro_app():
             st.image(utils.e_img3, width=1000)
         with col3:
             st.write(' ')
-        # st.image(utils.e_img3, use_column_width=True)
 
         st.write("")
         st.write("")

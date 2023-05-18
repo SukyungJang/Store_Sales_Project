@@ -16,8 +16,8 @@ def feautreImportancePlot(model, X_train):
     model = model.best_estimator_
 
     # Calculate the feature importances
-    importances = model.feature_importances_
-    sorted_indices = np.argsort(importances)[::-1]
+    importances = model.feature_importances_ # 모델 선택 및 하이퍼파라미터 튜닝 기능을 사용하여 최적의 모델을 찾았을 때, 해당 모델 객체를 반환
+    sorted_indices = np.argsort(importances)[::-1] # 값이 큰 순서대로 저장
     sorted_features = X_train.columns[sorted_indices]
 
     # Create a bar chart of feature importances
@@ -34,7 +34,7 @@ def feautreImportancePlot(model, X_train):
 
     return fig
 
-@st.cache_resource
+@st.cache_resource # Streamlit 캐시 데코레이터, 데이터 또는 모델 등의 리소스를 캐싱하는 데 사용
 def run_model(data, max_depth, min_samples_leaf):
     # 특성과 타겟 분리
 
@@ -68,7 +68,7 @@ def prediction(model, X_test, y_test):
 
 def prediction_plot(X_test, y_test, y_test_pred, test_mae, r2):
     # 그래프 그리기
-    fig = go.Figure()
+    fig = go.Figure() # plotly express에서 제공하는 Figure 객체 생성 코드
     fig.add_trace(
         go.Scatter(x=X_test['transactions'], y=y_test, mode='markers', name='test', marker=dict(color='red'))
     )
@@ -96,7 +96,7 @@ def ml_app():
 
     store_num = int(st.sidebar.number_input(label='store_nbr', step=1, min_value=1, max_value=df_data['store_nbr'].max()))
 
-    data = pd.get_dummies(df_data.loc[df_data['store_nbr'] == store_num, ['family', 'transactions', 'sales']].dropna())
+    data = pd.get_dummies(df_data.loc[df_data['store_nbr'] == store_num, ['family', 'transactions', 'sales']].dropna()) # one-hot 인코딩
 
     model, X_test, y_test, fig1 = run_model(data, max_depth, min_samples_leaf)
     y_test_pred, test_mae, r2 = prediction(model, X_test, y_test)
